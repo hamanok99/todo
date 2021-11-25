@@ -26,6 +26,7 @@ class Task {
     }
 
     public function create(){
+        var_dump($this->id);
         if (!$this->id)
         {
             $url = parse_url(getenv('DATABASE_URL'));
@@ -40,7 +41,7 @@ class Task {
     }
 
     public function update(){
-        if ($this)
+        if ($this->id)
         {
             $url = parse_url(getenv('DATABASE_URL'));
             $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
