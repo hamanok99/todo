@@ -17,12 +17,14 @@ class Task {
         if($this->fix_flg) return true;
         return false;
     }
+
     public function deadlineOver(){
         $time1 = new DateTime();
         $time2 = new DateTime($this->deadline);
         if ($time1 > $time2) return true;
         return false;
     }
+
     public function create(){
         if ($this->id === null)
         {
@@ -33,6 +35,7 @@ class Task {
             $pdo->exec($sql);
         }
     }
+
     public function update(){
         if ($this->id !== null)
         {
