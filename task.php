@@ -6,7 +6,7 @@ class Task {
     private $deadline;
     private $fix_flg;
 
-    function __construct($name, $deadline, $fix_flg, $id = Null)	{
+    function __construct($name, $deadline, $fix_flg, $id = Null) {
         $this->id = $id;
         $this->name = $name;
         $this->deadline = $deadline;
