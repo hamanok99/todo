@@ -26,12 +26,15 @@ class Task {
     }
 
     public function create(){
-        if ($this->id === null)
+        echo $this->id;
+        echo $this->name;
+        if ($this->id == Null)
         {
             $url = parse_url(getenv('DATABASE_URL'));
             $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
             $pdo = new PDO($dsn, $url['user'], $url['pass']);
             $sql = "INSERT INTO todo(name, deadline, fix_flg) VALUES('"+$this->name+"', '"+$this->deadline+"', false);";
+            echo $sql;
             $pdo->exec($sql);
         }
     }
