@@ -2,32 +2,29 @@
 require_once("task.php");
 require_once("tasklist.php");
 
-//データ取得
-//$tasks = new TaskList();
-//$data = $tasks->getAllTask();
-//var_dump($data);
-
-// データ登録
-//$task = new Task("テスト2", "2021/11/29", false);
-//$result = $task->create();
-function php_func(){
-    $task = new Task("テスト2", "2021/12/01", false);
-    return $task->create();
+function insert() {
+    if(!empty($_POST)){
+        $task = new Task($_POST['name'], $_POST['deadline'], false);
+        return $task->create();
+    } else {
+        return false;
+    }
 }
 ?>
 
 <script type="text/javascript">
-    function clickMe(){
-    var result ="<?php php_func(); ?>";
-    alert(result);
+window.onload = function() {
+    var result ="<?php insert(); ?>";
+    alert(result.toString());
 }
-
 </script>
 
 <html>
     <body>
-        <form>
-            <button onclick="clickMe()"> Click </button>
+        <form method="post" action="index.php">
+            <button type="submit"> Click </button>
+            <input type="hidden" id="name" value="テスト"/>
+            <input type="hidden" id="deadline" value="2021/12/02"/>
         </form>
     </body>
 </html>
