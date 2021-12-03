@@ -9,7 +9,12 @@ require_once("tasklist.php");
 
 // データ登録
 $task = new Task("テスト2", "2021/11/29", false);
-$task->create();
+$result = $task->create();
 
+if ($result) {
+    echo "登録成功";
+} else {
+    echo "登録失敗";
+}
 
 ?>
