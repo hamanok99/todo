@@ -12,7 +12,7 @@ require_once("tasklist.php");
 //$result = $task->create();
 function php_func(){
     $task = new Task("テスト2", "2021/11/29", false);
-    $result = $task->create();
+    return $task->create();
 }
 ?>
 
