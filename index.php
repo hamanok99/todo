@@ -10,15 +10,18 @@ require_once("tasklist.php");
 // データ登録
 //$task = new Task("テスト2", "2021/11/29", false);
 //$result = $task->create();
-
+function php_func(){
+    $task = new Task("テスト2", "2021/11/29", false);
+    $result = $task->create();
+}
 ?>
 
 <script type="text/javascript">
     function clickMe(){
-    <?php $task = new Task("テスト2", "2021/11/29", false); ?>
-    var result ="<?php $task.create(); ?>";
+    var result ="<?php php_func(); ?>";
     document.write(result);
 }
+
 </script>
 
 <html>
