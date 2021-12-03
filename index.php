@@ -11,7 +11,7 @@ require_once("tasklist.php");
 //$task = new Task("テスト2", "2021/11/29", false);
 //$result = $task->create();
 function php_func(){
-    $task = new Task("テスト2", "2021/11/29", false);
+    $task = new Task("テスト2", "2021/12/01", false);
     return $task->create();
 }
 ?>
@@ -19,7 +19,7 @@ function php_func(){
 <script type="text/javascript">
     function clickMe(){
     var result ="<?php php_func(); ?>";
-    document.write(result);
+    alert(result);
 }
 
 </script>
