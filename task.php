@@ -30,9 +30,7 @@ class Task {
         {
             if (is_null($this->id))
             {
-                echo $this->name;
-                echo $this->deadline;
-                $sql = sprintf("IINSERT INTO todo(name, deadline, fix_flg) VALUES('%s', '%s', false);", $this->name, $this->deadline);
+                $sql = sprintf("INSERT INTO todo(name, deadline, fix_flg) VALUES('%s', '%s', false);", $this->name, $this->deadline);
                 $url = parse_url(getenv('DATABASE_URL'));
                 $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
                 $pdo = new PDO($dsn, $url['user'], $url['pass']);
