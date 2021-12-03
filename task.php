@@ -26,16 +26,21 @@ class Task {
     }
 
     public function create(){
-        if (is_null($this->id))
+        try
         {
-            echo $this->name;
-            echo $this->deadline;
-            $sql = sprintf("INSERT INTO todo(name, deadline, fix_flg) VALUES('%s', '%s', false);", $this->name, $this->deadline);
-            echo $sql;
-            $url = parse_url(getenv('DATABASE_URL'));
-            $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
-            $pdo = new PDO($dsn, $url['user'], $url['pass']);
-            $pdo->exec($sql);
+            if (is_null($this->id))
+            {
+                echo $this->name;
+                echo $this->deadline;
+                $sql = sprintf("IINSERT INTO todo(name, deadline, fix_flg) VALUES('%s', '%s', false);", $this->name, $this->deadline);
+                echo $sql;
+                $url = parse_url(getenv('DATABASE_URL'));
+                $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
+                $pdo = new PDO($dsn, $url['user'], $url['pass']);
+                $pdo->exec($sql);
+            }
+        } catch (PDOException $e){
+            echo "例外が発生しました : " . $e->getMessage();
         }
     }
 
