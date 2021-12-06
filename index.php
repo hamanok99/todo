@@ -15,10 +15,14 @@ function insert()
 
 <script type="text/javascript">
 window.onload = function() {
-    var name = <?php $_POST['name']; ?>;
-    var result ="<?php insert(); ?>";
-    alert(name);
-    alert(result.toString());
+
+    <?php if ($_POST['name']) : ?>
+        var name = <?php $_POST['name']; ?>;
+        var result ="<?php insert(); ?>";
+        if (result){
+            alert('登録完了');
+        }
+    <?php endif; ?>
 }
 </script>
 
