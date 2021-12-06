@@ -7,7 +7,7 @@ window.onload = function()
 {
     <?php if ($_POST['name']) : ?>
         <?php $task = new Task($_POST['name'], $_POST['deadline'], false); ?>
-        var result ="<?php $task->create(); ?>";
+        var result ="<?php var_export($task->create()); ?>";
         if (result){
             alert('登録完了');
         }
